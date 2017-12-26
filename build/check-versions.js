@@ -21,8 +21,7 @@ if (shell.which('npm')) {
     versionRequirement: packageConfig.engines.npm
   })
 }
-
-module.exports = function () {
+function getWarnings() {
   var warnings = []
   for (let mod of versionRequirements) {
     if (!semver.satisfies(mod.currentVersion, mod.versionRequirement)) {
@@ -32,7 +31,12 @@ module.exports = function () {
       )
     }
   }
+  return warnings;
+}
 
+
+module.exports = function () {
+  let warnings = getWarnings();
   if (warnings.length) {
     console.log('')
     console.log(chalk.yellow('To use this template, you must update following to modules:'))
