@@ -9,14 +9,20 @@ number.filterPredicate = function defaultFilter (rowval, filter) {
   return number.compare(rowval, filter) === 0
 }
 
-number.compare = function compareNumbers (x, y) {
-  function cook (d) {
-    return d.indexOf('.') >= 0 ? parseFloat(d) : parseInt(d)
-  }
+function cook (d) {
+  return d.indexOf('.') >= 0 ? parseFloat(d) : parseInt(d)
+}
 
+number.compare = function compareNumbers (x, y) {
   x = typeof x === 'number' ? x : cook(x)
   y = typeof y === 'number' ? y : cook(y)
-  return (x < y ? -1 : (x > y ? 1 : 0))
+  if (x < y) {
+    return -1
+  } else if (x > y) {
+    return 1
+  } else {
+    return 0
+  }
 }
 
 export default number
