@@ -18,4 +18,4 @@ script:
 after_success:
   - ./cc-test-reporter format-coverage -t lcov 'test/unit/coverage/lcov.info'
   - ./cc-test-reporter upload-coverage
-  - java -cp ~/codacy-coverage-reporter-assembly-latest.jar com.codacy.CodacyCoverageReporter -l JavaScript -r test/unit/coverage/lcov.info
+  - java -cp ~/codacy-coverage-reporter-assembly-latest.jar com.codacy.CodacyCoverageReporter -l JavaScript -r test/unit/coverage/cobertura.txt
