@@ -95,7 +95,7 @@ describe('Table.vue', () => {
       vm.$nextTick(() => {
         vm.$el.querySelector('thead th').click()
         vm.$nextTick(() => {
-          sortSpy.calledWith(0).should.be.true
+          sortSpy.should.have.been.calledWith(0)
           done()
         })
       })
@@ -106,7 +106,7 @@ describe('Table.vue', () => {
       await vm.$nextTick()
       vm.$el.querySelector('thead th:nth-child(2)').click()
       await vm.$nextTick()
-      sortSpy.calledWith(1).should.be.true
+      sortSpy.should.have.been.calledWith(1)
     })
   })
 
