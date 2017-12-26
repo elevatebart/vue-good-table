@@ -26,8 +26,7 @@ module.exports = function (config) {
       dir: './coverage',
       reporters: [
         { type: 'lcov', subdir: '.' },
-        { type: 'text-summary' },
-        { type: 'cobertura', subdir: '.', file: 'cobertura.txt' }
+        { type: 'text-summary' }
       ]
     }
   })
