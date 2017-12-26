@@ -15,4 +15,4 @@ script:
 after_success:
   - ./cc-test-reporter format-coverage -t lcov 'test/unit/coverage/lcov.info'
   - ./cc-test-reporter upload-coverage
-  - ./node_modules/.bin/codacy-coverage
+  - cat ./test/unit/coverage/lcov.info | ./node_modules/.bin/codacy-coverage
