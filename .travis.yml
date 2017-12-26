@@ -10,7 +10,7 @@ before_script:
   - ./cc-test-reporter before-build
 script:
   - npm run bundle
-  - npm run test
+  - npm run unit
 after_success:
   - ./cc-test-reporter format-coverage -t lcov 'test/unit/coverage/lcov.info'
   - ./cc-test-reporter upload-coverage
