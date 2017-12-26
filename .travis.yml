@@ -5,9 +5,6 @@ env:
 language: node_js
 node_js:
   - "8"
-before_install:
-  - sudo apt-get install jq
-  - wget -O ~/codacy-coverage-reporter-assembly-latest.jar $(curl https://api.github.com/repos/codacy/codacy-coverage-reporter/releases/latest | jq -r .assets[0].browser_download_url)
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
@@ -18,4 +15,4 @@ script:
 after_success:
   - ./cc-test-reporter format-coverage -t lcov 'test/unit/coverage/lcov.info'
   - ./cc-test-reporter upload-coverage
-  - java -cp ~/codacy-coverage-reporter-assembly-latest.jar com.codacy.CodacyCoverageReporter -l JavaScript -r test/unit/coverage/cobertura.txt
+  - ./node_modules/.bin/codacy-coverage
