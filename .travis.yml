@@ -1,0 +1,16 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=f27d553cd5b77672d2f0e89790cd4afec72af450ac46a5233b7e35f2b27a4517
+language: node_js
+node_js:
+  - "8"
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - npm run build
+  - npm run test
+after_success:
+  - ./cc-test-reporter format-coverage -t lcov 'test/unit/coverage/lcov.info'
+  - ./cc-test-reporter upload-coverage
