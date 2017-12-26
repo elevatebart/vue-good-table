@@ -6,16 +6,17 @@ var date = clone(def)
 
 date.isRight = true
 
-date.compare = function compare (x, y, column) {
-  function cook (d) {
-    if (column && column.inputFormat) {
-      return parse(d + '', '' + column.inputFormat, new Date())
-    } else {
-      return d
-    }
+function cook (d, column) {
+  if (column && column.inputFormat) {
+    return parse(d + '', '' + column.inputFormat, new Date())
+  } else {
+    return d
   }
-  x = cook(x)
-  y = cook(y)
+}
+
+date.compare = function compare (x, y, column) {
+  x = cook(x, column)
+  y = cook(y, column)
   if (!isValid(x)) {
     return -1
   }
