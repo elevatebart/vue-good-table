@@ -9,7 +9,7 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - npm run build
+  - npm run bundle
   - npm run test
 after_success:
   - ./cc-test-reporter format-coverage -t lcov 'test/unit/coverage/lcov.info'
