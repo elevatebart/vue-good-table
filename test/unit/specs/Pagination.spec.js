@@ -2,6 +2,7 @@ import sinon from 'sinon'
 import VueGoodPagination from '@/components/Pagination'
 import { mount } from 'vue-test-utils'
 
+/* eslint no-unused-expressions: 0 */
 describe('VueGoodPagination', () => {
   let wrapper, vm
   beforeEach(() => {
@@ -11,10 +12,11 @@ describe('VueGoodPagination', () => {
     })
     vm = wrapper.vm
   })
+
   it('should render 2 page buttons', async () => {
     await vm.$nextTick()
     wrapper.findAll('.page-btn').length.should.equal(2)
-    wrapper.contains('select').should.be.ok
+    expect(wrapper.contains('select')).to.equal(true)
   })
 
   it('should call previousPage when the first button is clicked', async () => {
