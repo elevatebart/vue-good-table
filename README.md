@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/elevatebart/vue-good-table.svg?branch=master)](https://travis-ci.org/elevatebart/vue-good-table)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ea0a32709f19194bd55d/test_coverage)](https://codeclimate.com/github/elevatebart/vue-good-table/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ea0a32709f19194bd55d/maintainability)](https://codeclimate.com/github/elevatebart/vue-good-table/maintainability)
 # Vue-good-table
 A simple, clean data table for VueJS (2.x) with essential features like sorting, column filtering, pagination etc
 
